@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable react-refresh/only-export-components */
 import { createContext,type ReactNode, useState } from "react"
 
 import type UsuarioLogin from "../models/UsuarioLogin"
@@ -34,11 +36,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
         try {
             await login(`/usuarios/logar`, usuarioLogin, setUsuario)
             alert("O Usuário foi autenticado com sucesso!")
-        } catch (error) {
-            alert("Os Dados do usuário estão inconsistentes!")
+ToastAlerta("Usuário foi autenticado com sucesso!", "sucesso")            alert("Os Dados do usuário estão inconsistentes!")
         }
-        setIsLoading(false)
-    }
+ToastAlerta("Os dados do Usuário estão inconsistentes!", "erro")    }
 
     function handleLogout() {
         setUsuario({
