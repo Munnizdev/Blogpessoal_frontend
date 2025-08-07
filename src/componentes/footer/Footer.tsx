@@ -1,46 +1,50 @@
-import { FacebookLogo, InstagramLogo, LinkedinLogo } from '@phosphor-icons/react'
-import { ReactNode, useContext } from 'react'
-import { AuthContext } from '../../contexts/AuthContext'
+import { LinkedinLogo, InstagramLogo, FacebookLogo } from '@phosphor-icons/react';
 
 function Footer() {
+  return (
+    <div className="w-full bg-[#708090] text-white py-8 mt-auto">
+      <div className="container mx-auto flex flex-col items-center">
+        <div className="text-center mb-6">
+          <p className='text-xl font-bold mb-2'>Cadastre-se</p>
+          <p className='hover:underline cursor-pointer'>Já é cliente? Clique aqui</p>
+        </div>
 
-    let data = new Date().getFullYear()
+        <div className="text-center">
+          <p className='text-lg font-semibold mb-4'>Acesse nossas redes sociais</p>
+          <div className='flex justify-center gap-6'>
+            <a 
+              href="https://www.linkedin.com/school/generationbrasil" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#F5D0C5] transition-colors"
+            >
+              <LinkedinLogo size={32} weight='bold' />
+            </a>
+            <a 
+              href="https://www.instagram.com/generationbrasil" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#F5D0C5] transition-colors"
+            >
+              <InstagramLogo size={32} weight='bold' />
+            </a>
+            <a 
+              href="https://www.facebook.com/generationbrasil" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#F5D0C5] transition-colors"
+            >
+              <FacebookLogo size={32} weight='bold' />
+            </a>
+          </div>
+        </div>
 
-    const { usuario } = useContext(AuthContext)
-
-    let component: ReactNode
-
-    if (usuario.token !== "") {
-
-        component = (
-
-            <div className="flex justify-center bg-indigo-900 text-white">
-                <div className="container flex flex-col items-center py-4">
-                    <p className='text-xl font-bold'>
-                        Blog Pessoal Generation | Copyright: {data}
-                    </p>
-                    <p className='text-lg'>Acesse nossas redes sociais</p>
-                    <div className='flex gap-2'>
-                        <a href="https://www.linkedin.com/school/generationbrasil" target="_blank">
-                            <LinkedinLogo size={48} weight='bold' />
-                        </a>
-                        <a href="https://www.instagram.com/generationbrasil" target="_blank">
-                            <InstagramLogo size={48} weight='bold' />
-                        </a>
-                        <a href="https://www.facebook.com/generationbrasil" target="_blank">
-                            <FacebookLogo size={48} weight='bold' />
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-        )
-    }
-    return (
-        <>
-            { component }
-        </>
-    )
+        <p className="text-sm mt-8 text-[#F5D0C5]">
+          © {new Date().getFullYear()} FarmaHub - Todos os direitos reservados
+        </p>
+      </div>
+    </div>
+  );
 }
 
-export default Footer
+export default Footer;
